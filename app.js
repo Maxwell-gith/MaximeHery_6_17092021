@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const path = require('path');
 
 // Déclaration des routes
 const sauceRoutes = require('./routes/sauce');
@@ -25,6 +26,9 @@ app.use((req, res, next) => {
 
 // Conversion en JSON
 app.use(express.json()); 
+
+// Gestion des images
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 // Lancement des routes
 app.use('/api/sauces', sauceRoutes);
