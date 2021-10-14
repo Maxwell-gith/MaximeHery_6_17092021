@@ -63,7 +63,6 @@ exports.rateSauce = (req, res, next) => {
         .then(() => res.status(201).json({ message: 'Vous avez aimé cette sauce!'}))
         // Sinon on retourne une erreur 400
         .catch((error) => res.status(400).json({ error }));
-        return;
     }
 
     // Dislike
@@ -77,7 +76,6 @@ exports.rateSauce = (req, res, next) => {
         )
         .then(() => res.status(201).json({ message: 'Vous n\'avez pas aimé cette sauce!'}))
         .catch((error) => res.status(400).json({ error }));
-        return;    
     }
 
     // Annulation Like ou Dislike
@@ -100,7 +98,6 @@ exports.rateSauce = (req, res, next) => {
                     .then(() => res.status(201).json({ message: 'Votre avez retiré votre Like'}))
                     // Sinon on retourne une erreur 400
                     .catch((error) => res.status(400).json({ error }));
-                    return; 
                 }
 
                 // Si le user a déjà disliké la sauce
@@ -114,7 +111,6 @@ exports.rateSauce = (req, res, next) => {
                     )
                     .then(() => res.status(201).json({ message: 'Votre avez retiré votre Dislike'}))
                     .catch((error) => res.status(400).json({ error }));
-                    return;
                 }
             })
             .catch((error) => res.status(400).json({ error }));
