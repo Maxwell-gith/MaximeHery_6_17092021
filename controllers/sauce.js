@@ -54,7 +54,7 @@ exports.rateSauce = (req, res, next) => {
             { _id: sauceId },
             {
                 // on incrémente les likes de 1
-                $inc: {like: + 1},
+                $inc: {likes: 1},
                 // On met le user dans le tableau des users ayant liké
                 $push: {usersLiked: userId}
             }
@@ -70,7 +70,7 @@ exports.rateSauce = (req, res, next) => {
         Sauce.updateOne(
             { _id: sauceId },
             {
-                $inc: {dislike: +1},
+                $inc: {dislikes: 1},
                 $push: {usersDisliked: userId}
             }
         )
@@ -85,7 +85,7 @@ exports.rateSauce = (req, res, next) => {
             .then((sauce) => {
                 // Si le user a déjà liké la sauce
                 if(sauce.usersLiked.includes(userId)) {
-                    sauce.updateOne(
+                    Sauce.updateOne(
                         { _id: sauceId },
                         {
                             //On incrémente les likes de -1 
@@ -102,7 +102,7 @@ exports.rateSauce = (req, res, next) => {
 
                 // Si le user a déjà disliké la sauce
                 if(sauce.usersDisliked.includes(userId)) {
-                    sauce.updateOne(
+                    Sauce.updateOne(
                         { _id: sauceId },
                         { 
                             $inc: {dislikes: -1},

@@ -3,12 +3,12 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const maskData = require('maskdata');
 
-// const emailMask2Options = {
-//     maskWith: "*", 
-//     unmaskedStartCharactersBeforeAt: 2,
-//     unmaskedEndCharactersAfterAt: 3,
-//     maskAtTheRate: false
-// };
+const emailMask2Options = {
+    maskWith: "*", 
+    unmaskedStartCharactersBeforeAt: 2,
+    unmaskedEndCharactersAfterAt: 3,
+    maskAtTheRate: false
+};
 
 
 exports.signup = (req, res, next) => {
@@ -44,7 +44,7 @@ exports.login = (req, res, next) => {
                             { expiresIn: '24h' }
                         )
                     });
-                    // user.email = MaskData.maskEmail2(req.body.email, emailMask2Options)
+                    user.email = maskData.maskEmail2(req.body.email, emailMask2Options)
                 })
                 .catch(error => res.status(500).json({ error }));
         })
