@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const maskData = require('maskdata');
+const MaskData = require('maskdata');
 
 const emailMask2Options = {
     maskWith: "*", 
@@ -44,9 +44,9 @@ exports.login = (req, res, next) => {
                             { expiresIn: '24h' }
                         )
                     });
-                    user.email = maskData.maskEmail2(req.body.email, emailMask2Options)
+                    user.email = MaskData.maskEmail2(req.body.email, emailMask2Options)
                 })
                 .catch(error => res.status(500).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
-};
+    };
