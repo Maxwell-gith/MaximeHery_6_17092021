@@ -9,11 +9,11 @@ J'ai utilisé Node.js accompagné du framework Express.js ainsi que divers packa
 
 Tout d'abord cloner ce repository pour le frontend
 
-`$ git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6`
+`git clone https://github.com/OpenClassrooms-Student-Center/Web-Developer-P6`
 
 Ensuite cloner ce repository pour le backend
 
-`$ git clone https://github.com/Maxwell-gith/MaximeHery_6_17092021`
+`git clone https://github.com/Maxwell-gith/MaximeHery_6_17092021`
 
 Ajouter un dossier nommé "images" dans le backend
 
