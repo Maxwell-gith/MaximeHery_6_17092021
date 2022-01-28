@@ -23,9 +23,11 @@ Démarrer le serveur sur le dossier backend
 
 `nodemon server`
 
-Démarer le frontend
+Démarrer le frontend
 
 `cd frontend`
 
 `npm start`
+
+### Bonne visite!
 
